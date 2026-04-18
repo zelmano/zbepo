@@ -48,6 +48,6 @@ altgr = '''
 '''
 
 [spacebar]
-altgr       = "_"  # underscore (convention bépo)
-1dk         = "'"  # apostrophe
-1dk_shift   = "'"  # apostrophe
+shift       = "-"            # tiret (cohérent : altgr+espace = _, shift+espace = -)
+altgr       = "_"            # underscore (convention bépo)
+altgr_shift = "\u00A0"       # espace insécable
