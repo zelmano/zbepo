@@ -1,6 +1,6 @@
 # zBépo
 
-> Variante personnelle du [bépo](https://bepo.fr) — chiffres en base, symboles de programmation en shift. Version **0.5.0**.
+> Variante personnelle du [bépo](https://bepo.fr) — chiffres en base, symboles de programmation en shift. Version **0.5.2**.
 
 Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), locale `fr`. Le diagramme ci-dessous montre le rendu sur un **clavier physique QWERTY ANSI**.
 
@@ -41,8 +41,8 @@ Le préfixe `*` marque les **touches mortes** (ex. `*^` = circonflexe mort, `*¯
 ┃         ┃ A   │ U   │ I   │ E £ │ ;   │ C   │ T   │ S   │ R   │ N   │ M   ┃            ┃
 ┃ Caps    ┃ a æ │ u ù │ i *¨│ e € │ ,   │ c { │ t } │ s ( │ r ) │ n *~│ m   ┃ Enter      ┃
 ┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
-┃            ┃ À   │ Y   │ X « │ : » │ K   │ ?   │ Q   │ G   │ H   │ F   ┃               ┃
-┃ Shift      ┃ à / │ y \ │ x < │ . > │ k = │ '   │ q " │ g   │ h   │ f   ┃ Shift         ┃
+┃            ┃ À   │ Y   │ X   │ : « │ K » │ ?   │ Q   │ G   │ H   │ F   ┃               ┃
+┃ Shift      ┃ à / │ y \ │ x < │ . > │ k = │ ' " │ q   │ g   │ h   │ f   ┃ Shift         ┃
 ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
 ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
 ┃ Ctrl  ┃ Super ┃ Alt   ┃ Espace                         ┃ AltGr ┃ Super ┃ Menu  ┃ Ctrl  ┃
