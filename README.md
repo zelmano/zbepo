@@ -2,11 +2,11 @@
 
 > Variante personnelle du [bépo](https://bepo.fr) — chiffres en base, symboles de programmation en shift. Version **0.5.0**.
 
-Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), géométrie ISO, locale `fr`.
+Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), géométrie ISO côté source, locale `fr`. Le diagramme ci-dessous montre le rendu sur un **clavier physique QWERTY ANSI** (ç est sur la touche backslash, la rangée du bas n'a pas de touche 102ND).
 
 ## Pourquoi cette variante
 
-Le bépo standard place les chiffres sur la couche Shift du pavé numérique, héritage de la logique « lettres accentuées en base » (`1 → "`, `2 → «`, etc.). En usage programmation / saisie technique, cela impose une pression Shift permanente pour taper des chiffres, et les symboles de ponctuation courants en code (`+`, `-`, `*`, `/`, `=`, `@`, `%`, `$`, `#`) se retrouvent éparpillés sur les couches AltGr.
+Le bépo standard place les chiffres sur la couche Shift du pavé numérique, héritage de la logique « lettres accentuées en base » (`1 → "`, `2 → «`, etc.). En usage programmation / saisie technique, cela impose une pression Shift permanente pour taper des chiffres, et les symboles courants en code (`+`, `-`, `*`, `/`, `=`, `@`, `%`, `$`, `#`) se retrouvent éparpillés sur les couches AltGr.
 
 zBépo inverse cette logique :
 
@@ -23,28 +23,35 @@ Chaque case montre les 4 couches d'une touche :
 
 ```
 ┌─────┐
-│ S A │   S = Shift             A = Shift+AltGr
-│ b a │   b = base              a = AltGr
+│ S A │   S = Shift              A = Shift + AltGr
+│ b a │   b = base               a = AltGr
 └─────┘
 ```
 
 ```
-┌───────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│       │ #   │ $ ¯ │   ´ │   ˇ │ ` ` │     │ @   │ +   │ -   │ /   │ *   │ =   │ %   │
-│       │     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0 ° │     │     │
-├───────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│       │ B   │ É   │ P   │ O Œ │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │     │
-│  Tab  │ b | │ é & │ p   │ o œ │ è   │ ^   │ v [ │ d ] │ l   │ j   │ z   │ w   │     │
-├───────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│       │ A   │ U   │ I   │ E £ │ ;   │ C   │ T   │ S   │ R   │ N   │ M   │ Ç   │     │
-│  Maj  │ a æ │ u ù │ i ¨ │ e € │ ,   │ c { │ t } │ s ( │ r ) │ n ~ │ m   │ ç   │     │
-├───────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│       │     │ À   │ Y   │ X « │ : » │ K   │ ?   │ Q   │ G   │ H   │ F   │     │     │
-│ Shift │     │ à / │ y \ │ x < │ . > │ k = │ '   │ q " │ g   │ h   │ f   │     │     │
-└───────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────┐
+│ #   │ $ ¯ │   ´ │   ˇ │ ` ` │     │ @   │ +   │ -   │ /   │ *   │ =   │ %   │         │
+│     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0 ° │     │     │  Bksp   │
+└─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────────┘
+┌─────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│         │ B   │ É   │ P   │ O Œ │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │ Ç   │
+│   Tab   │ b | │ é & │ p   │ o œ │ è   │ ^   │ v [ │ d ] │ l   │ j   │ z   │ w   │ ç   │
+└─────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+┌──────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬──────────┐
+│          │ A   │ U   │ I   │ E £ │ ;   │ C   │ T   │ S   │ R   │ N   │ M   │          │
+│   Caps   │ a æ │ u ù │ i ¨ │ e € │ ,   │ c { │ t } │ s ( │ r ) │ n ~ │ m   │  Enter   │
+└──────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴──────────┘
+┌─────────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────────┐
+│             │ À   │ Y   │ X « │ : » │ K   │ ?   │ Q   │ G   │ H   │ F   │             │
+│    Shift    │ à / │ y \ │ x < │ . > │ k = │ '   │ q " │ g   │ h   │ f   │    Shift    │
+└─────────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────────────┘
+┌───────┬───────┬───────┬───────────────────────────────┬───────┬───────┬───────┬───────┐
+│       │       │       │                               │       │       │       │       │
+│ Ctrl  │ Super │ Alt   │            Espace             │ AltGr │ Super │ Menu  │ Ctrl  │
+└───────┴───────┴───────┴───────────────────────────────┴───────┴───────┴───────┴───────┘
 ```
 
-**Barre d'espace** (hors grille) :
+### Barre d'espace
 
 | Combo | Sortie |
 |-------|--------|
@@ -53,7 +60,7 @@ Chaque case montre les 4 couches d'une touche :
 | AltGr + Espace | `_` underscore |
 | Shift + AltGr + Espace | espace insécable (U+00A0) |
 
-## Touches mortes
+### Touches mortes
 
 Les symboles ci-dessous sont des **dead keys** : appuie sur la touche morte, puis sur la lettre à accentuer.
 
@@ -67,7 +74,7 @@ Les symboles ci-dessous sont des **dead keys** : appuie sur la touche morte, pui
 | `¨` | tréma | AltGr + `i` | `¨` + `e` → `ë` |
 | `~` | tilde | AltGr + `n` | `~` + `n` → `ñ` |
 
-> La grave littérale (`` ` ``) est en Shift + `4`. Le backtick affiché deux fois côte à côte dans la grille distingue la grave littérale (gauche) de la grave morte (droite).
+> Sur la touche `4`, l'accent grave apparaît deux fois : à gauche la grave **littérale** (Shift+4), à droite la grave **morte** (Shift+AltGr+4).
 
 ## Build
 
