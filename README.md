@@ -2,7 +2,7 @@
 
 > Variante personnelle du [bépo](https://bepo.fr) — chiffres en base, symboles de programmation en shift. Version **0.5.0**.
 
-Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), locale `fr`. Les diagrammes ci-dessous montrent le rendu sur un **clavier physique QWERTY ANSI**.
+Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), locale `fr`. Le diagramme ci-dessous montre le rendu sur un **clavier physique QWERTY ANSI**.
 
 ## Pourquoi cette variante
 
@@ -19,47 +19,33 @@ C'est un compromis pour un usage mixte code + français, pas un remplacement du 
 
 ## Layout
 
-Chaque case affiche deux valeurs : **en haut** la couche Shift, **en bas** la couche de base. Les préfixes `*` marquent les touches mortes (ex. `*^` = circonflexe mort).
+Chaque case regroupe les 4 couches d'une touche :
 
-### Couches base & shift
+```
+┌─────┐
+│ S A │   S = Shift              A = Shift + AltGr
+│ b a │   b = base               a = AltGr
+└─────┘
+```
+
+Le préfixe `*` marque les **touches mortes** (ex. `*^` = circonflexe mort, `*¯` = macron mort).
 
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-│ #   │ $   │     │     │ `   │     │ @   │ +   │ -   │ /   │ *   │ =   │ %   ┃          ┃
-│     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0   │     │     ┃ ⌫        ┃
+│ #   │ $ *¯│   *´│   *ˇ│ ` *`│     │ @   │ +   │ -   │ /   │ *   │ =   │ %   ┃          ┃
+│     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0 ° │     │     ┃ Bksp     ┃
 ┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
-┃        ┃ B   │ É   │ P   │ O   │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │ Ç     │
-┃ ↹      ┃ b   │ é   │ p   │ o   │ è   │*^   │ v   │ d   │ l   │ j   │ z   │ w   │ ç     │
+┃        ┃ B   │ É   │ P   │ O Œ │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │ Ç     │
+┃ Tab    ┃ b | │ é & │ p   │ o œ │ è   │*^   │ v [ │ d ] │ l   │ j   │ z   │ w   │ ç     │
 ┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
-┃         ┃ A   │ U   │ I   │ E   │ ;   │ C   │ T   │ S   │ R   │ N   │ M   ┃            ┃
-┃ ⇬       ┃ a   │ u   │ i   │ e   │ ,   │ c   │ t   │ s   │ r   │ n   │ m   ┃ ⏎          ┃
+┃         ┃ A   │ U   │ I   │ E £ │ ;   │ C   │ T   │ S   │ R   │ N   │ M   ┃            ┃
+┃ Caps    ┃ a æ │ u ù │ i *¨│ e € │ ,   │ c { │ t } │ s ( │ r ) │ n *~│ m   ┃ Enter      ┃
 ┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
-┃            ┃ À   │ Y   │ X   │ :   │ K   │ ?   │ Q   │ G   │ H   │ F   ┃               ┃
-┃ ⇧          ┃ à   │ y   │ x   │ .   │ k   │ '   │ q   │ g   │ h   │ f   ┃ ⇧             ┃
+┃            ┃ À   │ Y   │ X « │ : » │ K   │ ?   │ Q   │ G   │ H   │ F   ┃               ┃
+┃ Shift      ┃ à / │ y \ │ x < │ . > │ k = │ '   │ q " │ g   │ h   │ f   ┃ Shift         ┃
 ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
 ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
-┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                              ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
-┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-```
-
-### Couches AltGr & Shift+AltGr
-
-```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
-│     │  *¯ │  *´ │  *ˇ │  *` │     │     │     │     │     │     │     │     ┃          ┃
-│     │     │     │     │     │     │     │     │     │     │   ° │     │     ┃ ⌫        ┃
-┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
-┃        ┃     │     │     │   Œ │     │     │     │     │     │     │     │     │       │
-┃ ↹      ┃   | │   & │     │   œ │     │     │     │   [ │   ] │     │     │     │       │
-┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
-┃         ┃     │     │     │   £ │     │     │     │     │     │     │     ┃            ┃
-┃ ⇬       ┃   æ │   ù │  *¨ │   € │     │   { │   } │   ( │   ) │  *~ │     ┃ ⏎          ┃
-┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
-┃            ┃     │     │   « │   » │     │     │     │     │     │     ┃               ┃
-┃ ⇧          ┃   / │   \ │   < │   > │   = │     │   " │     │     │     ┃ ⇧             ┃
-┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
-┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
-┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                              ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+┃ Ctrl  ┃ Super ┃ Alt   ┃ Espace                         ┃ AltGr ┃ Super ┃ Menu  ┃ Ctrl  ┃
 ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 ```
 
