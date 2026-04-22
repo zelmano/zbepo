@@ -2,7 +2,7 @@
 
 > Variante personnelle du [bépo](https://bepo.fr) — chiffres en base, symboles de programmation en shift. Version **0.5.0**.
 
-Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), géométrie ISO côté source, locale `fr`. Le diagramme ci-dessous montre le rendu sur un **clavier physique QWERTY ANSI** (ç est sur la touche backslash, la rangée du bas n'a pas de touche 102ND).
+Layout décrit avec [Kalamine](https://github.com/OneDeadKey/kalamine), locale `fr`. Les diagrammes ci-dessous montrent le rendu sur un **clavier physique QWERTY ANSI**.
 
 ## Pourquoi cette variante
 
@@ -19,36 +19,48 @@ C'est un compromis pour un usage mixte code + français, pas un remplacement du 
 
 ## Layout
 
-Chaque case montre les 4 couches d'une touche :
+Chaque case affiche deux valeurs : **en haut** la couche Shift, **en bas** la couche de base. Les préfixes `*` marquent les touches mortes (ex. `*^` = circonflexe mort).
+
+### Couches base & shift
 
 ```
-┌─────┐
-│ S A │   S = Shift              A = Shift + AltGr
-│ b a │   b = base               a = AltGr
-└─────┘
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
+│ #   │ $   │     │     │ `   │     │ @   │ +   │ -   │ /   │ *   │ =   │ %   ┃          ┃
+│     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0   │     │     ┃ ⌫        ┃
+┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
+┃        ┃ B   │ É   │ P   │ O   │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │ Ç     │
+┃ ↹      ┃ b   │ é   │ p   │ o   │ è   │*^   │ v   │ d   │ l   │ j   │ z   │ w   │ ç     │
+┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
+┃         ┃ A   │ U   │ I   │ E   │ ;   │ C   │ T   │ S   │ R   │ N   │ M   ┃            ┃
+┃ ⇬       ┃ a   │ u   │ i   │ e   │ ,   │ c   │ t   │ s   │ r   │ n   │ m   ┃ ⏎          ┃
+┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
+┃            ┃ À   │ Y   │ X   │ :   │ K   │ ?   │ Q   │ G   │ H   │ F   ┃               ┃
+┃ ⇧          ┃ à   │ y   │ x   │ .   │ k   │ '   │ q   │ g   │ h   │ f   ┃ ⇧             ┃
+┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
+┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
+┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                              ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 ```
 
+### Couches AltGr & Shift+AltGr
+
 ```
-┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────┐
-│ #   │ $ ¯ │   ´ │   ˇ │ ` ` │     │ @   │ +   │ -   │ /   │ *   │ =   │ %   │         │
-│     │ 1   │ 2   │ 3   │ 4   │ 5   │ 6   │ 7   │ 8   │ 9   │ 0 ° │     │     │  Bksp   │
-└─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────────┘
-┌─────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│         │ B   │ É   │ P   │ O Œ │ È   │ !   │ V   │ D   │ L   │ J   │ Z   │ W   │ Ç   │
-│   Tab   │ b | │ é & │ p   │ o œ │ è   │ ^   │ v [ │ d ] │ l   │ j   │ z   │ w   │ ç   │
-└─────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-┌──────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬──────────┐
-│          │ A   │ U   │ I   │ E £ │ ;   │ C   │ T   │ S   │ R   │ N   │ M   │          │
-│   Caps   │ a æ │ u ù │ i ¨ │ e € │ ,   │ c { │ t } │ s ( │ r ) │ n ~ │ m   │  Enter   │
-└──────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴──────────┘
-┌─────────────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────────────┐
-│             │ À   │ Y   │ X « │ : » │ K   │ ?   │ Q   │ G   │ H   │ F   │             │
-│    Shift    │ à / │ y \ │ x < │ . > │ k = │ '   │ q " │ g   │ h   │ f   │    Shift    │
-└─────────────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────────────┘
-┌───────┬───────┬───────┬───────────────────────────────┬───────┬───────┬───────┬───────┐
-│       │       │       │                               │       │       │       │       │
-│ Ctrl  │ Super │ Alt   │            Espace             │ AltGr │ Super │ Menu  │ Ctrl  │
-└───────┴───────┴───────┴───────────────────────────────┴───────┴───────┴───────┴───────┘
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━━┓
+│     │  *¯ │  *´ │  *ˇ │  *` │     │     │     │     │     │     │     │     ┃          ┃
+│     │     │     │     │     │     │     │     │     │     │   ° │     │     ┃ ⌫        ┃
+┢━━━━━┷━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┺━━┯━━━━━━━┩
+┃        ┃     │     │     │   Œ │     │     │     │     │     │     │     │     │       │
+┃ ↹      ┃   | │   & │     │   œ │     │     │     │   [ │   ] │     │     │     │       │
+┣━━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┷━━━━━━━┪
+┃         ┃     │     │     │   £ │     │     │     │     │     │     │     ┃            ┃
+┃ ⇬       ┃   æ │   ù │  *¨ │   € │     │   { │   } │   ( │   ) │  *~ │     ┃ ⏎          ┃
+┣━━━━━━━━━┻━━┱──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┬──┴──┲━━┻━━━━━━━━━━━━┫
+┃            ┃     │     │   « │   » │     │     │     │     │     │     ┃               ┃
+┃ ⇧          ┃   / │   \ │   < │   > │   = │     │   " │     │     │     ┃ ⇧             ┃
+┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┴─────┴─────┴─────┴─────┴─────┴─┲━━━┷━━━┳━┷━━━━━╋━━━━━━━┳━━━━━━━┫
+┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃
+┃ Ctrl  ┃ super ┃ Alt   ┃ ␣                              ┃ AltGr ┃ super ┃ menu  ┃ Ctrl  ┃
+┗━━━━━━━┻━━━━━━━┻━━━━━━━┹────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 ```
 
 ### Barre d'espace
@@ -62,19 +74,15 @@ Chaque case montre les 4 couches d'une touche :
 
 ### Touches mortes
 
-Les symboles ci-dessous sont des **dead keys** : appuie sur la touche morte, puis sur la lettre à accentuer.
-
-| Signe | Nom | Position | Exemple |
-|-------|-----|----------|---------|
-| `¯` | macron | Shift+AltGr + `1` | `¯` + `a` → `ā` |
-| `´` | accent aigu | Shift+AltGr + `2` | `´` + `e` → `é` |
-| `ˇ` | caron | Shift+AltGr + `3` | `ˇ` + `s` → `š` |
-| `` ` `` | accent grave | Shift+AltGr + `4` | `` ` `` + `a` → `à` |
-| `^` | circonflexe | base, touche `!` (au-dessus du 7) | `^` + `a` → `â` |
-| `¨` | tréma | AltGr + `i` | `¨` + `e` → `ë` |
-| `~` | tilde | AltGr + `n` | `~` + `n` → `ñ` |
-
-> Sur la touche `4`, l'accent grave apparaît deux fois : à gauche la grave **littérale** (Shift+4), à droite la grave **morte** (Shift+AltGr+4).
+| Signe | Nom | Accès | Exemple |
+|-------|-----|-------|---------|
+| `*¯` | macron | Shift+AltGr + `1` | `*¯` + `a` → `ā` |
+| `*´` | accent aigu | Shift+AltGr + `2` | `*´` + `e` → `é` |
+| `*ˇ` | caron | Shift+AltGr + `3` | `*ˇ` + `s` → `š` |
+| `` *` `` | accent grave | Shift+AltGr + `4` | `` *` `` + `a` → `à` |
+| `*^` | circonflexe | base, touche `!` (au-dessus du 7) | `*^` + `a` → `â` |
+| `*¨` | tréma | AltGr + `i` | `*¨` + `e` → `ë` |
+| `*~` | tilde | AltGr + `n` | `*~` + `n` → `ñ` |
 
 ## Build
 
